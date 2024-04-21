@@ -6,6 +6,7 @@
     "baseUrl": ".",
     "paths": {
       "front/*": ["./inertia/*"],
+      "#enums/*": ["./app/enums/*"],
       "@/*": ["./inertia/lib/*"]
     }
   },
