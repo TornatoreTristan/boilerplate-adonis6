@@ -1,3 +1,4 @@
+import MobileNav from './nav/mobilenav'
 import Nav from './nav/nav'
 import UserNav from './nav/usernav'
 
@@ -8,9 +9,12 @@ export default function Header() {
         <div>
           <h1>Logo</h1>
         </div>
-        <div className="flex gap-8 items-center">
+        <div className="hidden gap-12 items-center md:flex">
           <Nav />
           <UserNav />
+        </div>
+        <div className="md:hidden">
+          <MobileNav />
         </div>
       </div>
     </>

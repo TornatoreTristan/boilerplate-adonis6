@@ -1,5 +1,5 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column } from '@adonisjs/lucid/orm'
+import { BaseModel, column, computed } from '@adonisjs/lucid/orm'
 
 export default class Profile extends BaseModel {
   @column({ isPrimary: true })
@@ -22,4 +22,9 @@ export default class Profile extends BaseModel {
 
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   declare updatedAt: DateTime
+
+  @computed()
+  get FullName() {
+    return `${this.firstName} ${this.lastName}`
+  }
 }
