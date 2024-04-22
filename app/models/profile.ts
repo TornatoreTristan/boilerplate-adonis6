@@ -1,5 +1,7 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column, computed } from '@adonisjs/lucid/orm'
+import { BaseModel, belongsTo, column, computed } from '@adonisjs/lucid/orm'
+import User from '#models/user'
+import type { BelongsTo } from '@adonisjs/lucid/types/relations'
 
 export default class Profile extends BaseModel {
   @column({ isPrimary: true })
@@ -27,4 +29,7 @@ export default class Profile extends BaseModel {
   get FullName() {
     return `${this.firstName} ${this.lastName}`
   }
+
+  @belongsTo(() => User)
+  declare user: BelongsTo<typeof User>
 }
